@@ -1,0 +1,156 @@
+html {
+  height: 100%;
+  /*min-width: 1200px;*/
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  background-color: #2c3e50;
+  color: #fff;
+  line-height: 60px;
+  flex: 0 0 auto;
+}
+
+.header .el-col-3 {
+  text-align: center;
+}
+
+.header .el-col-5 {
+  text-align: right;
+}
+.header_menu_icon{
+  display: none
+}
+.header_user{
+  text-align: right
+}
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+  height: 35px !important;
+  line-height: 35px;
+  text-align: center;
+  background-color: #2c3e50;
+  color: #abafb7;
+  margin-top: 40px;
+}
+
+.el-menu--horizontal>.el-menu-item {
+  color: #fff;
+}
+
+.el-menu--horizontal>.el-menu-item.is-active {
+  color: #fff;
+}
+
+.header .el-button {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  border: none;
+}
+
+.header .el-button:hover {
+  background-color: #ecf5ff;
+  color: #409eff;
+}
+
+.header .logo {
+  width: 110px;
+  margin-top: 7px;
+}
+
+.el-dropdown {
+  color: #abafb7;
+}
+
+.el-main {
+  padding: inherit;
+}
+
+.el-carousel__container {
+  text-align: center;
+}
+
+h4+p {
+  text-align: left;
+}
+
+.elrowwidth {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.home_text_row {
+  margin-top: 40px;
+}
+
+.home_text_row_img {
+  width: 50%;
+}
+
+.myrow {
+  padding: 0 40px;
+}
+
+.mymenu {
+  border: solid 1px #e6e6e6;
+}
+
+.el-menu-item {
+  text-align: center;
+}
+
+.limit {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.el-card .image {
+  width: 100%;
+}
+
+.myvideodiv {
+  left: 50%;
+  margin-left: -20%;
+  min-height: 400px;
+  max-height: 600px;
+}
+
+/* ***响应式布局*** */
+
+/* 大屏 */
+@media screen and (min-width:1200px) {
+  body {
+    background: rgba(34, 34, 136, 0.486);
+  }
+}
+
+/* 小屏 */
+@media screen and (min-width:979px) and (max-width:1200px) {
+  body {
+    background: rgba(255, 0, 157, 0.308);
+  }
+}
+
+/* 平板 */
+@media screen and (min-width:768px) and (max-width:979px) {
+  body {
+    background: rgba(255, 255, 0, 0.281);
+  }
+}
+
+/* 手机 */
+@media (max-width: 767px) {
+  body {
+    background: rgba(43, 146, 60, 0.473);
+  }
+}
