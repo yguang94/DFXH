@@ -12,8 +12,14 @@ import MyVideo from '@/components/myVideo'
 import MobHome from '@/components/mob/mob_home'
 import MobHPage from '@/components/mob/mob_hpage'
 import MobCourse from '@/components/mob/mob_course'
-import MobAbout from '@/components/mob/mob_about'
 import MobMy from '@/components/mob/mob_my'
+import MobCourseDetails from '@/components/mob/mob_courseDetails'
+import MobMyCourse from '@/components/mob/mob_myCourse'
+import MobMyVideo from '@/components/mob/mob_myVideo'
+import MobMyMessage from '@/components/mob/mob_myMessage'
+import MobMyAccount from '@/components/mob/mob_myAccount'
+import MobLogin from '@/components/mob/mob_login'
+import MobRegister from '@/components/mob/mob_register'
 
 Vue.use(Router)
 
@@ -81,17 +87,47 @@ export default new Router({
           component: MobCourse
         },
         {
-          path: '/MobAbout',
-          name: 'MobAbout',
-          component: MobAbout
-        },
-        {
           path: '/MobMy',
           name: 'MobMy',
           component: MobMy
         }
       ],
       redirect: 'MobHPage'
+    },
+    {
+      path: '/MobCourseDetails',
+      name: 'MobCourseDetails',
+      component: MobCourseDetails
+    },
+    {
+      path: '/MobMyCourse',
+      name: 'MobMyCourse',
+      component: MobMyCourse
+    },
+    {
+      path: '/MobMyVideo',
+      name: 'MobMyVideo',
+      component: MobMyVideo
+    },
+    {
+      path: '/MobMyMessage',
+      name: 'MobMyMessage',
+      component: MobMyMessage
+    },
+    {
+      path: '/MobMyAccount',
+      name: 'MobMyAccount',
+      component: MobMyAccount
+    },
+    {
+      path: '/MobLogin',
+      name: 'MobLogin',
+      component: MobLogin
+    },
+    {
+      path: '/MobRegister',
+      name: 'MobRegister',
+      component: MobRegister
     }
   ]
 })

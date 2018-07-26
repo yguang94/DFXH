@@ -128,29 +128,54 @@ h4+p {
 /* ***响应式布局*** */
 
 /* 大屏 */
+/*
 @media screen and (min-width:1200px) {
   body {
     background: rgba(34, 34, 136, 0.486);
   }
 }
 
-/* 小屏 */
+!* 小屏 *!
 @media screen and (min-width:979px) and (max-width:1200px) {
   body {
     background: rgba(255, 0, 157, 0.308);
   }
 }
 
-/* 平板 */
+!* 平板 *!
 @media screen and (min-width:768px) and (max-width:979px) {
   body {
     background: rgba(255, 255, 0, 0.281);
   }
 }
 
-/* 手机 */
+!* 手机 *!
 @media (max-width: 767px) {
   body {
     background: rgba(43, 146, 60, 0.473);
   }
+}
+*/
+
+
+
+.mob_image{
+  width: 100%;
+}
+.mob_homeimage{
+  width: 50%;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+.mob_portrait{
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.mob_loginInput{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }

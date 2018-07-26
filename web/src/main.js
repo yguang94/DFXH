@@ -4,14 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
-import MintUI from 'mint-ui'
+import axios from 'axios'
 import '../theme/index.css'
-import 'mint-ui/lib/style.css'
 import './assets/css/style.css'
 
 
 Vue.use(Element)
-Vue.use(MintUI)
+Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

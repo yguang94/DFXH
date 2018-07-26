@@ -1,7 +1,7 @@
 <template>
   <div style="height: 100%">
-    <x-header :left-options="{showBack: false}" slot="header">课程列表</x-header>
     <ViewBox>
+      <x-header slot="header" title="我的课程"></x-header>
       <card v-for="o in 6" :key="o">
         <div slot="content">
           <flexbox>
@@ -16,8 +16,7 @@
                   </flexbox-item>
                   <flexbox-item>
                     <div class="flex-demo">
-                      <badge text="¥6499"></badge>
-                      <x-button mini plain style="float: right;border: none" link="/MobCourseDetails">查看详情</x-button>
+                      <x-button mini type="primary" style="float: right;margin: 0 15px 15px 0" link="/MobMyVideo">开始学习</x-button>
                     </div>
                   </flexbox-item>
                 </flexbox>
@@ -32,18 +31,17 @@
 </template>
 
 <script>
-  import {XHeader, Card, Flexbox, FlexboxItem, Divider, Badge, XButton, ViewBox} from 'vux'
+  import {ViewBox, XHeader, Card, Flexbox, FlexboxItem, Divider, XButton} from 'vux'
 
   export default {
     components: {
+      ViewBox,
       XHeader,
       Card,
       Flexbox,
       FlexboxItem,
       Divider,
-      Badge,
-      XButton,
-      ViewBox
+      XButton
     },
     props: {},
     data() {
@@ -59,3 +57,6 @@
   }
 </script>
 
+<style scoped>
+
+</style>
