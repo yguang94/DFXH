@@ -5,7 +5,10 @@
       <card>
         <div slot="content" style="padding: 20px;text-align: center">
           <img src="../../assets/img/user.png" class="mob_portrait" alt="">
-          <div>
+          <div v-if="status == 1">
+            <span>{{ userName }}</span>
+          </div>
+          <div v-if="status == 0">
             <flexbox>
               <flexbox-item>
                 <x-button type="primary" link="/MobLogin">登录</x-button>
@@ -32,6 +35,20 @@
 
 <script>
   import {XHeader, ViewBox, Group, Cell, Card, Flexbox, FlexboxItem, XButton,Badge} from 'vux'
+  import C from '../../service/PCCommon'
+
+  function init() {
+    load(this)
+  }
+
+  function load(vue) {
+    let that = this
+    C.call('getUserInfo', {}).then(function (d) {
+      console.log(d);
+      vue.userName = d.userName;
+      vue.status = d.status;
+    })
+  }
 
   export default {
     components: {
@@ -47,14 +64,16 @@
     },
     props: {},
     data() {
-      return {}
+      return {
+        userName: '',
+        status: 0
+      }
     },
     watch: {},
     computed: {},
     methods: {},
     created() {
     },
-    mounted() {
-    }
+    mounted: init
   }
 </script>

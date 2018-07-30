@@ -36,14 +36,14 @@
               <i class="fa fa-book fa-5x" aria-hidden="true"></i>
               <span style="display: block;margin-top: 20px">你还没有已购的课程</span>
             </div>-->
-            <el-row :gutter="20">
-              <el-col :span="6" v-for="o in 6" :key="o" >
+            <el-row :gutter="20" v-loading="loading">
+              <el-col :span="6" v-for="(o, index) in list" :key="index" >
                 <el-card :body-style="{ padding: '0px' }" shadow="hover" style="margin-bottom: 20px">
-                  <img src="../assets/img/ke1.png" class="image">
+                  <img :src = o.CourseImg class="image">
                   <div style="padding: 14px;">
-                    <span>心肺系统疾病物理治疗</span>
+                    <span>{{ o.CourseName }}</span>
                     <div class="bottom clearfix">
-                      <el-tag>已学20%</el-tag>
+                      <el-tag>已学{{ o.CourseProgress }}</el-tag>
                       <router-link tag="div" to="/MyVideo" class="el-button el-button--default el-button--text" style="float: right">立即学习</router-link>
                     </div>
                   </div>
@@ -57,12 +57,29 @@
   </div>
 </template>
 <script>
+  import C from '../service/PCCommon'
+
+  function init() {
+    load(this)
+  }
+
+  function load(vue) {
+    let that = this
+    C.call('userCourse', {}).then(function (d) {
+      console.log(d);
+      vue.list = d.Course
+      vue.loading = false
+    })
+  }
+
   export default {
     data() {
       return {
-        msg: ''
+        list: [],
+        loading: true
       }
     },
-    components: {}
+    components: {},
+    mounted: init
   }
 </script>

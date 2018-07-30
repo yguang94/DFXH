@@ -106,7 +106,7 @@ const BaseCommon = class BaseCommon {
       let realURL = '/api/' + url
       axios.post(realURL,Qs.stringify(data))
         .then(res => {
-          res=res.data
+          res = res.data
           console.log(res)
           if (res.code === 200) {
             console.log(666)

@@ -11,14 +11,19 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      target:'https://www.easy-mock.com/mock/5b5977dd727da942772da95f/dfxhapi',
-      changeOrigin: true,
+      '/api':{
+        target: 'https://www.easy-mock.com/mock/5b5977dd727da942772da95f/dfxhapi',
+        changeOrigin: true,
+        pathRewrite:{
+          '^/api': ''
+        }
+      }
     },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

@@ -16,17 +16,17 @@
           <el-button slot="reference" >关注微信</el-button>
         </el-popover>
       </div>
-      
+
     </el-col>
     <el-col :span="4">
-      <!--<div>
-        <router-link tag="button" to="/Login" class="el-button el-button&#45;&#45;default el-button&#45;&#45;small" style="border: 1px solid #dcdfe6">登录</router-link>
-        <router-link tag="button" to="/Register" class="el-button el-button&#45;&#45;default el-button&#45;&#45;small" style="border: 1px solid #dcdfe6">注册</router-link>
-      </div>-->
-      <div class="header_user">
+      <div v-if="status == 0">
+        <router-link tag="button" to="/Login" class="el-button el-button--default el-button--small" style="border: 1px solid #dcdfe6">登录</router-link>
+        <router-link tag="button" to="/Register" class="el-button el-button--default el-button--small" style="border: 1px solid #dcdfe6">注册</router-link>
+      </div>
+      <div v-if="status == 1" class="header_user">
         <el-dropdown>
           <span class="el-dropdown-link">
-            <i class="fa fa-user-circle-o fa-1.5x"></i> &nbsp; yguang
+            <i class="fa fa-user-circle-o fa-1.5x"></i> {{ userName }}
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
@@ -46,16 +46,32 @@
   </el-row>
 </template>
 <script>
+  import C from '../service/PCCommon'
+
+
+  function init() {
+    load(this)
+  }
+  function load (vue) {
+    let that = this
+    C.call('getUserInfo',{}).then(function (d) {
+      console.log(d);
+      vue.userName = d.userName;
+      vue.status = d.status;
+    })
+  }
 
   export default {
     data() {
       return {
-        msg: ''
+        userName: '',
+        status: 0
       }
     },
     components: {},
     methods:{
-      
-    }
+
+    },
+    mounted: init
   }
 </script>
