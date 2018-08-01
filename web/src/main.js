@@ -7,6 +7,7 @@ import Element from 'element-ui'
 import axios from 'axios'
 import '../theme/index.css'
 import './assets/css/style.css'
+import store from './store/index'
 
 
 Vue.use(Element)
@@ -17,6 +18,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

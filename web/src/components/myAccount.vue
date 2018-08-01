@@ -35,10 +35,10 @@
               <el-tab-pane label="用户信息">
                 <el-form ref="form" label-width="80px">
                   <el-form-item label="昵称">
-                    <el-input disabled></el-input>
+                    <el-input disabled v-model= $store.state.loginName ></el-input>
                   </el-form-item>
                   <el-form-item label="Email">
-                    <el-input type="email" disabled></el-input>
+                    <el-input type="email" disabled v-model= $store.state.loginState></el-input>
                   </el-form-item>
                   <el-form-item label="手机">
                     <el-input type="Tel" disabled></el-input>
@@ -83,12 +83,23 @@
   </div>
 </template>
 <script>
+  import store from '../store'
+  import { mapMutations } from 'vuex'
+
+
   export default {
     data() {
       return {
         msg: ''
       }
     },
-    components: {}
+    components: {},
+    store,
+    methods: {
+      ...mapMutations([
+        'loginName',
+        'loginState'
+      ])
+    }
   }
 </script>

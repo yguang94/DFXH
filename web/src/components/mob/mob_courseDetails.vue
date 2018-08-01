@@ -4,7 +4,7 @@
       <x-header slot="header" title="课程详情"></x-header>
       <card>
         <div slot="content">
-          <img src="../../assets/img/ke1.png" alt="" class="mob_image">
+          <img :src=courseImg alt="" class="mob_image">
         </div>
       </card>
       <card :header="{title: '课程详情' }">
@@ -15,13 +15,14 @@
           </p>
         </div>
         <div slot="footer" style="padding: 20px">
-          <badge text="¥6499"></badge>
-          <badge text="12课时" style="background: #31c3f7"></badge>
-          <badge text="240分钟" style="background: #31c3f7"></badge>
-          <x-button mini type="primary" style="float: right" link="/MobCourseDetails">购买课程</x-button>
+          <badge :text=coursePrice></badge>
+          <badge :text=courseLength style="background: #31c3f7"></badge>
+          <!--<badge text="240分钟" style="background: #31c3f7"></badge>-->
+          <x-button mini type="primary" style="float: right" v-if="courseState === 0" link="/MobCourseDetails">购买课程</x-button>
+          <x-button mini type="primary" style="float: right" v-if="courseState === 1" link="/MobMyVideo">立即学习</x-button>
         </div>
       </card>
-      <divider>到底啦</divider>
+      <divider>{{ courseID}}</divider>
     </ViewBox>
   </div>
 </template>
@@ -40,7 +41,13 @@
     },
     props: {},
     data() {
-      return {}
+      return {
+        courseID: this.$route.query.courseID,
+        coursePrice: this.$route.query.coursePrice,
+        courseLength: this.$route.query.courseLength + '课时',
+        courseState: this.$route.query.courseState,
+        courseImg: this.$route.query.courseImg
+      }
     },
     watch: {},
     computed: {},

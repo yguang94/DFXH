@@ -17,7 +17,7 @@
                   <flexbox-item>
                     <div class="flex-demo">
                       <badge :text= o.price></badge>
-                      <x-button mini plain style="float: right;border: none" link="/MobCourseDetails">查看详情</x-button>
+                      <x-button mini plain style="float: right;border: none" :link="{path:'/MobCourseDetails',query:{courseID:o.id,coursePrice:o.price,courseLength:o.CourseLength,courseState:o.state,courseImg:o.CourseImg}}">查看详情</x-button>
                     </div>
                   </flexbox-item>
                 </flexbox>

@@ -5,10 +5,10 @@
       <card>
         <div slot="content" style="padding: 20px;text-align: center">
           <img src="../../assets/img/user.png" class="mob_portrait" alt="">
-          <div v-if="status == 1">
-            <span>{{ userName }}</span>
+          <div v-if="$store.state.loginState !== 0">
+            <span>{{ $store.state.loginName }}</span>
           </div>
-          <div v-if="status == 0">
+          <div v-if="$store.state.loginState === 0">
             <flexbox>
               <flexbox-item>
                 <x-button type="primary" link="/MobLogin">登录</x-button>
@@ -35,20 +35,8 @@
 
 <script>
   import {XHeader, ViewBox, Group, Cell, Card, Flexbox, FlexboxItem, XButton,Badge} from 'vux'
-  import C from '../../service/PCCommon'
+  import { mapMutations } from 'vuex'
 
-  function init() {
-    load(this)
-  }
-
-  function load(vue) {
-    let that = this
-    C.call('getUserInfo', {}).then(function (d) {
-      console.log(d);
-      vue.userName = d.userName;
-      vue.status = d.status;
-    })
-  }
 
   export default {
     components: {
@@ -71,9 +59,13 @@
     },
     watch: {},
     computed: {},
-    methods: {},
-    created() {
+    methods: {
+      ...mapMutations([
+        'loginName',
+        'loginState'
+      ])
     },
-    mounted: init
+    created() {
+    }
   }
 </script>
